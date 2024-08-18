@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on qui</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on qui</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 18 Aug 2024 16:37:57 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create your newsletter app: FreshRSS</title>
+      <link>http://localhost:1313/posts/freshrss/</link>
+      <pubDate>Sun, 18 Aug 2024 16:37:57 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/freshrss/</guid>
+      <description>Docker Installation https://docs.docker.com/engine/install
+And install docker compose too. FreshRSS Install mkdir ~/freshrss cd ~/freshrss nano docker-compose.yml Paste this code to docker-compose.yml file:
+name: freshrss services: freshrss: restart: unless-stopped logging: options: max-size: 10m ports: - 5050:80 environment: - TZ=&amp;lt;yourtimezone&amp;gt; - CRON_MIN=1,31 volumes: - freshrss_data:/var/www/FreshRSS/data - freshrss_extensions:/var/www/FreshRSS/extensions container_name: freshrss image: freshrss/freshrss volumes: freshrss_data: external: true name: freshrss_data freshrss_extensions: external: true name: freshrss_extensions And customize TZ variable.
+docker compose up -d # or docker-compose up -d And, you can customize your reverse proxy or access FreshRSS with 5050 port.</description>
+      <content:encoded><![CDATA[<h1 id="docker-installation">Docker Installation</h1>
+<p><a href="https://docs.docker.com/engine/install">https://docs.docker.com/engine/install</a></p>
+<ul>
+<li>And install docker compose too.</li>
+</ul>
+<h1 id="freshrss-install">FreshRSS Install</h1>
+<pre tabindex="0"><code>mkdir ~/freshrss
+cd ~/freshrss
+nano docker-compose.yml
+</code></pre><p>Paste this code to docker-compose.yml file:</p>
+<pre tabindex="0"><code>name: freshrss
+services:
+    freshrss:
+        restart: unless-stopped
+        logging:
+            options:
+                max-size: 10m
+        ports:
+            - 5050:80
+        environment:
+            - TZ=&lt;yourtimezone&gt;
+            - CRON_MIN=1,31
+        volumes:
+            - freshrss_data:/var/www/FreshRSS/data
+            - freshrss_extensions:/var/www/FreshRSS/extensions
+        container_name: freshrss
+        image: freshrss/freshrss
+volumes:
+    freshrss_data:
+        external: true
+        name: freshrss_data
+    freshrss_extensions:
+        external: true
+        name: freshrss_extensions
+</code></pre><p>And customize TZ variable.</p>
+<pre tabindex="0"><code>docker compose up -d # or docker-compose up -d
+</code></pre><p>And, you can customize your reverse proxy or access FreshRSS with 5050 port.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Create your own VPN: OpenVPN</title>
+      <link>http://localhost:1313/posts/vpn/</link>
+      <pubDate>Sun, 18 Aug 2024 16:35:38 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/vpn/</guid>
+      <description>We&amp;rsquo;ll use OpenVPN install script.
+Downloading Script curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh chmod +x openvpn-install.sh Running Script sudo ./openvpn-install.sh For IP address, just press enter.
+If you wanna use IPV6, you can say y, if you don&amp;rsquo;t want, you can say n.
+In port choice, I recommend using Random.
+In Protocol, I recommend UDP. If it&amp;rsquo;s not available, just use TCP.
+Select a DNS to use in your VPN. I recommend Adguard DNS.</description>
+      <content:encoded><![CDATA[<p>We&rsquo;ll use OpenVPN install script.</p>
+<h1 id="downloading-script">Downloading Script</h1>
+<pre tabindex="0"><code>curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+chmod +x openvpn-install.sh
+</code></pre><h1 id="running-script">Running Script</h1>
+<pre tabindex="0"><code>sudo ./openvpn-install.sh
+</code></pre><p>For IP address, just press enter.</p>
+<p>If you wanna use IPV6, you can say <code>y</code>, if you don&rsquo;t want, you can say <code>n</code>.</p>
+<p>In port choice, I recommend using Random.</p>
+<p>In Protocol, I recommend UDP. If it&rsquo;s not available, just use TCP.</p>
+<p>Select a DNS to use in your VPN. I recommend Adguard DNS.</p>
+<p>In compression, I recommend <code>n</code>.</p>
+<p>In encryption settings, I recommend <code>n</code>. Because script is setting a lot of settings already. We don&rsquo;t need to modify them.</p>
+<p>Script will install packages.</p>
+<p>We&rsquo;ll create a client. It can be your PC, phone etc. Give a name for it.</p>
+<p>If you wanna use a password, you can select it.</p>
+<p>It will create ovpn file in your home directory. We need to download this file to your host machine.</p>
+<p>You can use sftp in your host machine.</p>
+<h1 id="connecting">Connecting</h1>
+<p>Download OpenVPN, and connect to your VPN.</p>
+<p>If you are using KDE Plasma, you don&rsquo;t need to download OpenVPN app. Just go to</p>
+<ul>
+<li>Settings</li>
+<li>Wi-Fi &amp; Internet</li>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>Import new connection</li>
+<li>Select your OVPN file</li>
+<li>Click to network button in your taskbar</li>
+<li>Find your VPN connection</li>
+<li>Click Connect</li>
+</ul>
+<h1 id="credit">Credit</h1>
+<p><a href="https://www.youtube.com/watch?v=X06u5AM_2F0">13 Dakikada VPN Sunucusu Kur (Turkish)</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Server Guide</title>
+      <link>http://localhost:1313/posts/serverguide/</link>
+      <pubDate>Sun, 18 Aug 2024 16:32:24 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/serverguide/</guid>
+      <description>Hello! Are you tired of companies like Google and Microsoft? This guide is for you!
+Requirements Domain name Domains are annual. Personally, I bought mine from GoDaddy and I&amp;rsquo;m using it comfortably.
+Server I know servers are expensive. However, you can get a VPS for less than $1 for your first year at OVHCloud.
+My recommendation is to get a server with Debian 12. The guide will be based on this, you can adapt it to other distros if you want.</description>
+      <content:encoded><![CDATA[<p>Hello! Are you tired of companies like Google and Microsoft? This guide is for you!</p>
+<h1 id="requirements">Requirements</h1>
+<h2 id="domain-name">Domain name</h2>
+<p>Domains are annual. Personally, I bought mine from GoDaddy and I&rsquo;m using it comfortably.</p>
+<h2 id="server">Server</h2>
+<p>I know servers are expensive. However, you can get a VPS for less than $1 for your first year at OVHCloud.</p>
+<p>My recommendation is to get a server with Debian 12. The guide will be based on this, you can adapt it to other distros if you want.</p>
+<h2 id="linux-knowledge">Linux Knowledge</h2>
+<p>If you don&rsquo;t have knowledge, I do not recommend entering this field.</p>
+<h1 id="what-we-will-do">What We Will Do</h1>
+<ul>
+<li>A Site</li>
+<li>Git Server</li>
+</ul>
+<h1 id="getting-started">Getting Started</h1>
+<p>If you have both, we can start the process.</p>
+<p>First, connect to your server via SSH; your password will be in the link sent to your email.</p>
+<h1 id="changing-password">Changing Password</h1>
+<pre tabindex="0"><code>sudo passwd $USER # change user password
+sudo passwd root # change root password
+</code></pre><h1 id="update">Update</h1>
+<pre tabindex="0"><code>sudo apt update # update repositories
+sudo apt upgrade # update the system
+</code></pre><h1 id="linking-domain-with-server">Linking Domain with Server</h1>
+<p>First, find the server&rsquo;s IP address using <code>ip a</code>; in OVH, it usually starts with 51.</p>
+<p>Then, go to the DNS records section of your domain.</p>
+<p>Create an A record with the name <code>@</code> and the value of your IP address. For example:</p>
+<pre tabindex="0"><code>Type: A
+Name: @
+Value: Your IP Address
+</code></pre><p>And we will create many subdomains. Subdomains are the parts before the domain. For example, mail.google.com is a subdomain, google.com is the domain.</p>
+<p>For subdomains: Add a CNAME record for the subdomain. For example, in this guide, git and bin subdomains will be used, you can add these records:</p>
+<pre tabindex="0"><code>CNAME git Your Main Domain
+CNAME bin Your Main Domain
+</code></pre><h1 id="docker-installation">Docker Installation</h1>
+<p><a href="https://docs.docker.com/engine/install/debian">https://docs.docker.com/engine/install/debian</a></p>
+<h2 id="docker-rootless-installation">Docker Rootless Installation</h2>
+<pre tabindex="0"><code>sudo systemctl disable --now docker
+dockerd-rootless-setuptool.sh install
+systemctl --user enable --now docker
+echo &#39;export PATH=&#34;$HOME/.bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre><h1 id="caddy-installation">Caddy Installation</h1>
+<p>We will install Caddy using Docker.</p>
+<pre tabindex="0"><code>mkdir ~/caddy
+cd ~/caddy
+</code></pre><p>docker-compose.yml file:</p>
+<pre tabindex="0"><code>version: &#34;3.7&#34;
+
+services:
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - &#34;80:80&#34;
+      - &#34;443:443&#34;
+      - &#34;443:443/udp&#34;
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
+</code></pre><pre tabindex="0"><code>nano Cadddyfile 
+</code></pre><pre tabindex="0"><code>example.com {
+        root * /srv
+        file_server
+}
+</code></pre><p>Change example.com with your domain.</p>
+<p>Upload your site to ~/caddy/site folder.</p>
+<pre tabindex="0"><code>docker-compose up -d
+</code></pre><p>You might encounter an error, which might ask you to add something to <code>/etc/sysctl.conf</code>. Add the required line and run <code>sudo sysctl --system</code>. Then, run the previous command again.</p>
+<h1 id="git-server-installation">Git Server Installation</h1>
+<p>We&rsquo;ll use forgejo.</p>
+<pre tabindex="0"><code>mkdir ~/forgejo
+cd ~/forgejo
+</code></pre><pre tabindex="0"><code>nano docker-compose.yml
+</code></pre><p>Find the Docker Compose file on the <a href="https://forgejo.org/docs/latest/admin/installation-docker">https://forgejo.org/docs/latest/admin/installation-docker</a> page.</p>
+<pre tabindex="0"><code>docker-compose up -d
+</code></pre><pre tabindex="0"><code>cd ~/caddy
+nano Caddyfile
+</code></pre><pre tabindex="0"><code>git.example.com {
+        reverse_proxy localhost:3000
+}
+</code></pre><p>Then save and run <code>docker compose restart</code>.</p>
+<h1 id="setting-up-a-pastebin-alternative">Setting Up a Pastebin Alternative</h1>
+<p>I&rsquo;ll only give compose file, you can do all steps yourself.</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+        pastebin:
+                image: wantguns/bin
+                container_name: pastebin
+                ports:
+                        - 6163:6163
+                environment:
+                        - BIN_PORT=6163 # Defaults to 6162
+                        - BIN_LIMITS={form=&#34;16 MiB&#34;}
+                        - BIN_CLIENT_DESC=placeholder
+                volumes:
+                        - ./upload:/upload # upload folder will have your pastes
+</code></pre>]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
