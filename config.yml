@@ -1,4 +1,4 @@
-baseURL: "https://quitaxd.online/"
+baseURL: "https://qui.is-a.dev"
 title: qui
 paginate: 5
 theme: PaperModX
@@ -54,7 +54,7 @@ params:
     # profile-mode
     profileMode:
         enabled: false # needs to be explicitly set
-        title: ExampleSite
+        title: qui
         subtitle: "This is subtitle"
         imageUrl: "<img location>"
         imageWidth: 120
@@ -74,10 +74,8 @@ params:
     socialIcons:
         - name: youtube
           url: "https://youtube.com/@quitaxd"
-        - name: stackoverflow
-          url: "https://stackoverflow.com"
-        - name: gitea
-          url: "https://git.vern.cc/qui"
+        - name: github
+          url: "https://github.com/thatqui/"
 
     analytics:
         google:
@@ -93,7 +91,7 @@ params:
         hiddenInSingle: true # hide on single page
 
     editPost:
-        URL: "https://github.com/<path_to_repo>/content"
+        URL: "https://github.com/thatqui/thatqui.github.io/content"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 
