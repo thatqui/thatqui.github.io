@@ -50,6 +50,7 @@ volumes:
 And customize TZ variable.
 
 ```
+docker volume create freshrss_extensions; docker volume create freshrss_data
 docker compose up -d # or docker-compose up -d
 ```
 
