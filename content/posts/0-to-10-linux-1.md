@@ -1,7 +1,7 @@
 +++
 title = '0 to 10 Linux: Downloading Linux'
 date = 2024-08-22T13:13:05+03:00
-draft = false
+draft = true
 +++
 
 Hello and welcome to 0 to 10 Linux.

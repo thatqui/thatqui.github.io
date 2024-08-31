@@ -19,6 +19,7 @@ params:
     title: qui
     keywords: [Blog, Portfolio, PaperModX]
     author: qui
+    TocSite: 'left'
     # author: ["Me", "You"] # multiple authors
     #images: ["<link or path of image for opengraph, twitter-cards>"]
     DateFormat: "January 2, 2006"
